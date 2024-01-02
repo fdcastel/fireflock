@@ -30,7 +30,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-declare -a ENGINES=("FB50" "FB40" "FB30" "FB25")
+declare -a ENGINES=("fb50" "fb40" "fb30" "fb25")
 for eng in ${ENGINES[@]}
 do
     OPT_DATABASE="$OPT_TARGET/$OPT_PREFIX.$eng.fdb"
@@ -39,7 +39,7 @@ do
     BIN_PATH_ENV_NAME="${eng}_BIN_PATH"
     BIN_PATH=${!BIN_PATH_ENV_NAME}
 
-    if [ "$eng" == "FB25" ]; then
+    if [ "$eng" == "fb25" ]; then
         # Patch for Firebird 2.5 -- https://groups.google.com/g/firebird-support/c/T6Nu6snaBWM/m/yLYqcJj0BAAJ
         export LD_LIBRARY_PATH=$BIN_PATH/../lib
         export FIREBIRD=$BIN_PATH/..
@@ -51,7 +51,7 @@ do
             PAGE_SIZE $OPT_PAGESIZE DEFAULT CHARACTER SET $OPT_CHARSET;
 EOF
 
-    if [ "$eng" == "FB25" ]; then
+    if [ "$eng" == "fb25" ]; then
         export LD_LIBRARY_PATH=
         export FIREBIRD=
     fi

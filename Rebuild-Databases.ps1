@@ -27,7 +27,7 @@ if ($Target) {
 mkdir -Force $dbFolder | Out-Null
 
 # Build databases
-$Engines = 'FB50', 'FB40', 'FB30', 'FB25'
+$Engines = 'fb50', 'fb40', 'fb30', 'fb25'
 $Engines | ForEach-Object {
     $engine = $_
 
